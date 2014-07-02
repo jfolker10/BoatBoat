@@ -1,6 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[System.Serializable]
+public class CannonSpawn
+{
+	public Transform shotSpawn1, shotSpawn2, shotSpawn3, shotSpawn4, shotSpawn5, shotSpawn6;
+}
+
 public class Ship : MonoBehaviour {
 	public GameObject waveMesh;
 	public PerlinMap perlinMap;
@@ -13,8 +19,10 @@ public class Ship : MonoBehaviour {
 	private bool pushBoatUp;
 	private bool pushBoatDown;
 	//private SpoutMove spoutMove;
-	//private bool spoutUpDirection;
 	public AudioClip spoutSound;
+
+	public GameObject cannonBall;
+	public CannonSpawn cs;
 
 	private Vector3 pointN, pointE, pointS, pointW;
 	private float width, length, zAngle, xAngle;
@@ -79,6 +87,30 @@ public class Ship : MonoBehaviour {
 		//this.transform.Rotate(this.transform.forward, xAngle - this.transform.eulerAngles.x);
 		//this.transform.Rotate(this.transform.right, zAngle - this.transform.eulerAngles.z);
 		//Debug.Log(zAngle);
+
+		//Chase Adding cannonball shots
+		//if (Input.GetKeyDown (KeyCode.Alpha1)) {
+		if (Input.GetKeyDown (KeyCode.Alpha7)) {
+			Instantiate(cannonBall, cs.shotSpawn1.position, cs.shotSpawn1.rotation);
+		}
+		//else if (Input.GetKeyDown (KeyCode.Alpha2)) {
+		else if (Input.GetKeyDown (KeyCode.Alpha8)) {
+			Instantiate(cannonBall, cs.shotSpawn2.position, cs.shotSpawn2.rotation);
+		}
+		//else if (Input.GetKeyDown (KeyCode.Alpha3)) {
+		else if (Input.GetKeyDown (KeyCode.Alpha9)) {
+			Instantiate(cannonBall, cs.shotSpawn3.position, cs.shotSpawn3.rotation);
+		}
+		//else if (Input.GetKeyDown (KeyCode.Alpha4)) {
+		else if (Input.GetKeyDown (KeyCode.Alpha0)) {
+			Instantiate(cannonBall, cs.shotSpawn4.position, cs.shotSpawn4.rotation);
+		}
+		else if (Input.GetKeyDown (KeyCode.Alpha5)) {
+			Instantiate(cannonBall, cs.shotSpawn5.position, cs.shotSpawn5.rotation);
+		}
+		else if (Input.GetKeyDown (KeyCode.Alpha6)) {
+			Instantiate(cannonBall, cs.shotSpawn6.position, cs.shotSpawn6.rotation);
+		}
 	}
 
 	void FixedUpdate() {
