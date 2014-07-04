@@ -5,14 +5,15 @@ public class DestroyByContact : MonoBehaviour {
 
 	public GameObject explosion;
 	
-	void OnTriggerEnter(Collider other) 
+	//void OnTriggerEnter(Collider other) 
+	void OnCollisionEnter(Collision other)
 	{
-		if ((other.tag != "Spout Sector"))
+		if (other.collider.tag == "Spout Sector")
 		{
-			Instantiate(explosion, transform.position, transform.rotation);
-			Destroy(gameObject);
+			return;
 		}
-
+		Instantiate(explosion, transform.position, transform.rotation);
+		Destroy(gameObject);
 		//Add when enemy boat needs to die
 //		if (other.tag == "Player")
 //		{
