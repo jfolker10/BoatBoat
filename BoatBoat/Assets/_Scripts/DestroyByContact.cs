@@ -7,11 +7,12 @@ public class DestroyByContact : MonoBehaviour {
 	
 	void OnTriggerEnter(Collider other) 
 	{
-		if (other.tag == "Ocean")
+		if ((other.tag != "Spout Sector"))
 		{
-			return;
+			Instantiate(explosion, transform.position, transform.rotation);
+			Destroy(gameObject);
 		}
-		Instantiate(explosion, transform.position, transform.rotation);
+
 		//Add when enemy boat needs to die
 //		if (other.tag == "Player")
 //		{
@@ -19,6 +20,5 @@ public class DestroyByContact : MonoBehaviour {
 //			gameController.GameOver ();
 //		}
 //		Destroy(other.gameObject);
-		Destroy(gameObject);
 	}
 }
