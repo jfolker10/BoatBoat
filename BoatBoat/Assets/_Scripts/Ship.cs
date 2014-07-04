@@ -91,25 +91,37 @@ public class Ship : MonoBehaviour {
 		//Chase Adding cannonball shots
 		//if (Input.GetKeyDown (KeyCode.Alpha1)) {
 		if (Input.GetKeyDown (KeyCode.Alpha7)) {
-			Instantiate(cannonBall, cs.shotSpawn1.position, cs.shotSpawn1.rotation);
+			GameObject go;
+			go = Instantiate(cannonBall, cs.shotSpawn1.position, cs.shotSpawn1.rotation) as GameObject;
+			go.SendMessage("ShotDirection", -1);
 		}
 		//else if (Input.GetKeyDown (KeyCode.Alpha2)) {
 		else if (Input.GetKeyDown (KeyCode.Alpha8)) {
-			Instantiate(cannonBall, cs.shotSpawn2.position, cs.shotSpawn2.rotation);
+			GameObject go;
+			go = Instantiate(cannonBall, cs.shotSpawn2.position, cs.shotSpawn2.rotation) as GameObject;
+			go.SendMessage("ShotDirection", -1);
 		}
 		//else if (Input.GetKeyDown (KeyCode.Alpha3)) {
 		else if (Input.GetKeyDown (KeyCode.Alpha9)) {
-			Instantiate(cannonBall, cs.shotSpawn3.position, cs.shotSpawn3.rotation);
+			GameObject go;
+			go = Instantiate(cannonBall, cs.shotSpawn3.position, cs.shotSpawn3.rotation) as GameObject;
+			go.SendMessage("ShotDirection", -1);
 		}
 		//else if (Input.GetKeyDown (KeyCode.Alpha4)) {
 		else if (Input.GetKeyDown (KeyCode.Alpha0)) {
-			Instantiate(cannonBall, cs.shotSpawn4.position, cs.shotSpawn4.rotation);
+			GameObject go;
+			go = Instantiate(cannonBall, cs.shotSpawn4.position, cs.shotSpawn4.rotation) as GameObject;
+			go.SendMessage("ShotDirection", 1);
 		}
 		else if (Input.GetKeyDown (KeyCode.Alpha5)) {
-			Instantiate(cannonBall, cs.shotSpawn5.position, cs.shotSpawn5.rotation);
+			GameObject go;
+			go = Instantiate(cannonBall, cs.shotSpawn5.position, cs.shotSpawn5.rotation) as GameObject;
+			go.SendMessage("ShotDirection", 1);
 		}
 		else if (Input.GetKeyDown (KeyCode.Alpha6)) {
-			Instantiate(cannonBall, cs.shotSpawn6.position, cs.shotSpawn6.rotation);
+			GameObject go;
+			go = Instantiate(cannonBall, cs.shotSpawn6.position, cs.shotSpawn6.rotation) as GameObject;
+			go.SendMessage("ShotDirection", 1);
 		}
 	}
 
