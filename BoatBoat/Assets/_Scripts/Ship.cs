@@ -21,7 +21,6 @@ public class Ship : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-
 		perlinMap = waveMesh.GetComponent<PerlinMap>();
 
 		length = this.gameObject.GetComponent<CapsuleCollider>().height * this.transform.lossyScale.z;
@@ -124,8 +123,8 @@ public class Ship : MonoBehaviour {
 	}
 
 	public static float AngleSigned(Vector3 v1, Vector3 v2, Vector3 n) {
-	    return Mathf.Atan2(
-	        Vector3.Dot(n, Vector3.Cross(v1, v2)),
-	        Vector3.Dot(v1, v2)) * Mathf.Rad2Deg;
+		return Mathf.Atan2(
+			Vector3.Dot(n, Vector3.Cross(v1, v2)),
+			Vector3.Dot(v1, v2)) * Mathf.Rad2Deg;
 	}
 }
