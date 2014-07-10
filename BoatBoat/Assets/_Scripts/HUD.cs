@@ -6,6 +6,7 @@ public class HUD : MonoBehaviour {
 	public string levelTheme;
 	public GameObject hudGUI;
 	public float health;
+	public Ship ship;
 	public 
 
 	// Use this for initialization
@@ -15,7 +16,7 @@ public class HUD : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		health = Ship.health;
+		health = ship.health;
 		if (Input.GetKeyUp(KeyCode.Alpha1)) {
 			Application.LoadLevel("playtestScene");
 		} else if (Input.GetKeyUp(KeyCode.Alpha2)) {
@@ -25,5 +26,6 @@ public class HUD : MonoBehaviour {
 		} else if (Input.GetKeyUp(KeyCode.Alpha4)) {
 			Application.LoadLevel("playtestScene");
 		} 
+		hudGUI.guiText.text = personName + "\n" + levelTheme + "\nShip Health: " + health;
 	}
 }

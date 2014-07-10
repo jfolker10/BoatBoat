@@ -19,12 +19,11 @@ public class Ship : MonoBehaviour {
 	private Vector3 pointN, pointE, pointS, pointW;
 	private float width, length, zAngle, xAngle;
 
-	public static float health; //The player's health
+	public float health; //The player's health
 	private bool damageFlag; //A flag for being hit by something that should do damage.
 
 	// Use this for initialization
 	void Start () {
-		health = 100.0f;
 		perlinMap = waveMesh.GetComponent<PerlinMap>();
 
 		length = this.gameObject.GetComponent<CapsuleCollider>().height * this.transform.lossyScale.z;
