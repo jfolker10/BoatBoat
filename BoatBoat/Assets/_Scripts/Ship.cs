@@ -19,13 +19,17 @@ public class Ship : MonoBehaviour {
 	private Vector3 pointN, pointE, pointS, pointW;
 	private float width, length, zAngle, xAngle;
 
+	public static float health; //The player's health
+	private bool damageFlag; //A flag for being hit by something that should do damage.
+
 	// Use this for initialization
 	void Start () {
-
+		health = 100.0f;
 		perlinMap = waveMesh.GetComponent<PerlinMap>();
 
 		length = this.gameObject.GetComponent<CapsuleCollider>().height * this.transform.lossyScale.z;
 		width = this.gameObject.GetComponent<CapsuleCollider>().radius * this.transform.lossyScale.x * 2;
+		damageFlag = false;
 	}
 	
 	// Update is called once per frame
@@ -104,6 +108,14 @@ public class Ship : MonoBehaviour {
 		}
 
 		prevHitFlag = hitFlag;
+	}
+
+	void OnTriggerEnter(Collider other){
+		if (other.tag == "Weapon") {
+			Debug.Log ("ship was hit by enemy fire");
+			damageFlag = true;
+			health = health - 5.0f;
+		}
 	}
 
 	void OnTriggerStay(Collider other)
